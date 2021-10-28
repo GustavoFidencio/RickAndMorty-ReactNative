@@ -40,29 +40,61 @@
 		00E356EE1AD99517003FC87E /* rickAndMortyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = rickAndMortyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* rickAndMortyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = rickAndMortyTests.m; sourceTree = "<group>"; };
+		0C660A1A5A9144A3ADCA4AE9 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* rickAndMorty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rickAndMorty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = rickAndMorty/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = rickAndMorty/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = rickAndMorty/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = rickAndMorty/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = rickAndMorty/main.m; sourceTree = "<group>"; };
+		15B28CF5EA8E4A7EB7C25DF1 /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
+		197AA17B99D343FAA66CF9F3 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Brands.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
 		1D0AE47A65C8663E3B452821 /* Pods-rickAndMorty-rickAndMortyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rickAndMorty-rickAndMortyTests.release.xcconfig"; path = "Target Support Files/Pods-rickAndMorty-rickAndMortyTests/Pods-rickAndMorty-rickAndMortyTests.release.xcconfig"; sourceTree = "<group>"; };
-		3260FD28BC554D4A8D3BD6E1 /* SulSans-Bold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "SulSans-Bold.otf"; path = "../src/assets/font/SulSans-Bold.otf"; sourceTree = "<group>"; };
-		53DF2D8C195B4997A33078AC /* SulSans-Medium.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "SulSans-Medium.otf"; path = "../src/assets/font/SulSans-Medium.otf"; sourceTree = "<group>"; };
+		23A6E386012F4ED99F3AFD0A /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Regular.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
+		3260FD28BC554D4A8D3BD6E1 /* SulSans-Bold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SulSans-Bold.otf"; path = "../src/assets/font/SulSans-Bold.otf"; sourceTree = "<group>"; };
+		41880954CA7F4FFEA48E222B /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
+		528967FA1D4D450A980FBA8D /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
+		53DF2D8C195B4997A33078AC /* SulSans-Medium.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SulSans-Medium.otf"; path = "../src/assets/font/SulSans-Medium.otf"; sourceTree = "<group>"; };
+		542DB8A62D104D58B8CEA1E8 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
+		58BADED09F364BE4B79967C7 /* AntDesign.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = AntDesign.ttf; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
+		59B6626FCB7948D3A7629AC9 /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
+		5ECB8CD09EC548B49BF5E395 /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
+		5F3B38C7F2374995BF471393 /* Fontisto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Fontisto.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf"; sourceTree = "<group>"; };
+		5FCCD8A26A8548EC8E157593 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
 		6423831EA8574132BED9D8CC /* libPods-rickAndMorty.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-rickAndMorty.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C97AB639B58BBB4B15BBE30 /* Pods-rickAndMorty-rickAndMortyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rickAndMorty-rickAndMortyTests.debug.xcconfig"; path = "Target Support Files/Pods-rickAndMorty-rickAndMortyTests/Pods-rickAndMorty-rickAndMortyTests.debug.xcconfig"; sourceTree = "<group>"; };
-		7B546648883741A3BB6BE94A /* SulSans-Black.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "SulSans-Black.otf"; path = "../src/assets/font/SulSans-Black.otf"; sourceTree = "<group>"; };
-		7D6610E7D4DC454190BB9E76 /* SulSans-Italic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "SulSans-Italic.otf"; path = "../src/assets/font/SulSans-Italic.otf"; sourceTree = "<group>"; };
+		6EA7440ED4F0482DA3C99D94 /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
+		7839E932CC8743DC83C07826 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
+		7B546648883741A3BB6BE94A /* SulSans-Black.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SulSans-Black.otf"; path = "../src/assets/font/SulSans-Black.otf"; sourceTree = "<group>"; };
+		7D6610E7D4DC454190BB9E76 /* SulSans-Italic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SulSans-Italic.otf"; path = "../src/assets/font/SulSans-Italic.otf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = rickAndMorty/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ABFE59519B596E51CEFDCCC0 /* libPods-rickAndMorty-rickAndMortyTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-rickAndMorty-rickAndMortyTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		AD9A01A0066045C198C5BC96 /* SulSans-MediumItalic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "SulSans-MediumItalic.otf"; path = "../src/assets/font/SulSans-MediumItalic.otf"; sourceTree = "<group>"; };
+		AD9A01A0066045C198C5BC96 /* SulSans-MediumItalic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SulSans-MediumItalic.otf"; path = "../src/assets/font/SulSans-MediumItalic.otf"; sourceTree = "<group>"; };
 		C0A881CF5CF3F2B244570E2A /* Pods-rickAndMorty.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rickAndMorty.debug.xcconfig"; path = "Target Support Files/Pods-rickAndMorty/Pods-rickAndMorty.debug.xcconfig"; sourceTree = "<group>"; };
-		C2BC55BDF6C64BC7816D8DB1 /* SulSans-Regular.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "SulSans-Regular.otf"; path = "../src/assets/font/SulSans-Regular.otf"; sourceTree = "<group>"; };
-		C2DDC29BC1BA4E028489B2EF /* SulSans-Light.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "SulSans-Light.otf"; path = "../src/assets/font/SulSans-Light.otf"; sourceTree = "<group>"; };
-		C8124B061EA44C34B96EF97C /* SulSans-LightItalic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "SulSans-LightItalic.otf"; path = "../src/assets/font/SulSans-LightItalic.otf"; sourceTree = "<group>"; };
+		C2BC55BDF6C64BC7816D8DB1 /* SulSans-Regular.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SulSans-Regular.otf"; path = "../src/assets/font/SulSans-Regular.otf"; sourceTree = "<group>"; };
+		C2DDC29BC1BA4E028489B2EF /* SulSans-Light.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SulSans-Light.otf"; path = "../src/assets/font/SulSans-Light.otf"; sourceTree = "<group>"; };
+		C8124B061EA44C34B96EF97C /* SulSans-LightItalic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SulSans-LightItalic.otf"; path = "../src/assets/font/SulSans-LightItalic.otf"; sourceTree = "<group>"; };
+		CA8BDCBB26354FFE904631EB /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
 		D00AAFFCFCFDA5787532823F /* Pods-rickAndMorty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rickAndMorty.release.xcconfig"; path = "Target Support Files/Pods-rickAndMorty/Pods-rickAndMorty.release.xcconfig"; sourceTree = "<group>"; };
-		E18BAEC382474F34A0CB3E36 /* SulSans-BoldItalic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "SulSans-BoldItalic.otf"; path = "../src/assets/font/SulSans-BoldItalic.otf"; sourceTree = "<group>"; };
-		EC2CAD24716F416584494FB0 /* SulSans-BlackItalic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "SulSans-BlackItalic.otf"; path = "../src/assets/font/SulSans-BlackItalic.otf"; sourceTree = "<group>"; };
+		D91EB4DC6AB649A08C2717D6 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
+		E18BAEC382474F34A0CB3E36 /* SulSans-BoldItalic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SulSans-BoldItalic.otf"; path = "../src/assets/font/SulSans-BoldItalic.otf"; sourceTree = "<group>"; };
+		EC2CAD24716F416584494FB0 /* SulSans-BlackItalic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SulSans-BlackItalic.otf"; path = "../src/assets/font/SulSans-BlackItalic.otf"; sourceTree = "<group>"; };
+		ECF9A2722729D55C00F415C7 /* Ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Ionicons.ttf; sourceTree = "<group>"; };
+		ECF9A2732729D55C00F415C7 /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.ttf; sourceTree = "<group>"; };
+		ECF9A2742729D55C00F415C7 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SimpleLineIcons.ttf; sourceTree = "<group>"; };
+		ECF9A2752729D55D00F415C7 /* Zocial.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Zocial.ttf; sourceTree = "<group>"; };
+		ECF9A2762729D55D00F415C7 /* Foundation.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Foundation.ttf; sourceTree = "<group>"; };
+		ECF9A2772729D55D00F415C7 /* Octicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Octicons.ttf; sourceTree = "<group>"; };
+		ECF9A2782729D55D00F415C7 /* Entypo.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Entypo.ttf; sourceTree = "<group>"; };
+		ECF9A2792729D55D00F415C7 /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome5_Regular.ttf; sourceTree = "<group>"; };
+		ECF9A27A2729D55D00F415C7 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MaterialCommunityIcons.ttf; sourceTree = "<group>"; };
+		ECF9A27B2729D55D00F415C7 /* Feather.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Feather.ttf; sourceTree = "<group>"; };
+		ECF9A27C2729D55E00F415C7 /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome5_Solid.ttf; sourceTree = "<group>"; };
+		ECF9A27D2729D55E00F415C7 /* AntDesign.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AntDesign.ttf; sourceTree = "<group>"; };
+		ECF9A27E2729D55E00F415C7 /* MaterialIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MaterialIcons.ttf; sourceTree = "<group>"; };
+		ECF9A27F2729D55E00F415C7 /* EvilIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = EvilIcons.ttf; sourceTree = "<group>"; };
+		ECF9A2802729D55E00F415C7 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome5_Brands.ttf; sourceTree = "<group>"; };
+		ECF9A2812729D55E00F415C7 /* Fontisto.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Fontisto.ttf; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -106,6 +138,7 @@
 		13B07FAE1A68108700A75B9A /* rickAndMorty */ = {
 			isa = PBXGroup;
 			children = (
+				ECF9A2712729D48B00F415C7 /* Fonts */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -171,9 +204,24 @@
 				53DF2D8C195B4997A33078AC /* SulSans-Medium.otf */,
 				AD9A01A0066045C198C5BC96 /* SulSans-MediumItalic.otf */,
 				C2BC55BDF6C64BC7816D8DB1 /* SulSans-Regular.otf */,
+				58BADED09F364BE4B79967C7 /* AntDesign.ttf */,
+				59B6626FCB7948D3A7629AC9 /* Entypo.ttf */,
+				528967FA1D4D450A980FBA8D /* EvilIcons.ttf */,
+				6EA7440ED4F0482DA3C99D94 /* Feather.ttf */,
+				7839E932CC8743DC83C07826 /* FontAwesome.ttf */,
+				197AA17B99D343FAA66CF9F3 /* FontAwesome5_Brands.ttf */,
+				23A6E386012F4ED99F3AFD0A /* FontAwesome5_Regular.ttf */,
+				CA8BDCBB26354FFE904631EB /* FontAwesome5_Solid.ttf */,
+				5F3B38C7F2374995BF471393 /* Fontisto.ttf */,
+				5ECB8CD09EC548B49BF5E395 /* Foundation.ttf */,
+				41880954CA7F4FFEA48E222B /* Ionicons.ttf */,
+				5FCCD8A26A8548EC8E157593 /* MaterialCommunityIcons.ttf */,
+				D91EB4DC6AB649A08C2717D6 /* MaterialIcons.ttf */,
+				15B28CF5EA8E4A7EB7C25DF1 /* Octicons.ttf */,
+				542DB8A62D104D58B8CEA1E8 /* SimpleLineIcons.ttf */,
+				0C660A1A5A9144A3ADCA4AE9 /* Zocial.ttf */,
 			);
 			name = Resources;
-			path = "";
 			sourceTree = "<group>";
 		};
 		E233CBF5F47BEE60B243DCF8 /* Pods */ = {
@@ -185,6 +233,29 @@
 				1D0AE47A65C8663E3B452821 /* Pods-rickAndMorty-rickAndMortyTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		ECF9A2712729D48B00F415C7 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				ECF9A27D2729D55E00F415C7 /* AntDesign.ttf */,
+				ECF9A2782729D55D00F415C7 /* Entypo.ttf */,
+				ECF9A27F2729D55E00F415C7 /* EvilIcons.ttf */,
+				ECF9A27B2729D55D00F415C7 /* Feather.ttf */,
+				ECF9A2732729D55C00F415C7 /* FontAwesome.ttf */,
+				ECF9A2802729D55E00F415C7 /* FontAwesome5_Brands.ttf */,
+				ECF9A2792729D55D00F415C7 /* FontAwesome5_Regular.ttf */,
+				ECF9A27C2729D55E00F415C7 /* FontAwesome5_Solid.ttf */,
+				ECF9A2812729D55E00F415C7 /* Fontisto.ttf */,
+				ECF9A2762729D55D00F415C7 /* Foundation.ttf */,
+				ECF9A2722729D55C00F415C7 /* Ionicons.ttf */,
+				ECF9A27A2729D55D00F415C7 /* MaterialCommunityIcons.ttf */,
+				ECF9A27E2729D55E00F415C7 /* MaterialIcons.ttf */,
+				ECF9A2772729D55D00F415C7 /* Octicons.ttf */,
+				ECF9A2742729D55C00F415C7 /* SimpleLineIcons.ttf */,
+				ECF9A2752729D55D00F415C7 /* Zocial.ttf */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -533,6 +604,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G625UPV6D7;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = rickAndMorty/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -560,6 +632,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G625UPV6D7;
 				INFOPLIST_FILE = rickAndMorty/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

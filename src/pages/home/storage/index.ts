@@ -3,12 +3,11 @@ import { GetCharacteres } from '../../../factory/requests';
 
 export class StorageHome {
 
-    static getCharacteres() {
+    static getCharacteres(id: number): any {
         return new Promise((resolve, reject) => {
-            Executor.run(new GetCharacteres())
-                .then(res => resolve(res.data))
+            Executor.run(new GetCharacteres(id))
+                .then(res => resolve(res.data.results))
                 .catch(err => reject(err.response));
         })
     }
-
 }

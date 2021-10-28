@@ -3,8 +3,8 @@ import Routes from '../routes';
 
 export class GetCharacteres extends Request {
 
-    constructor() {
-        const url = Routes.characteres;
+    constructor(id: number) {
+        const url = `${Routes.characteres}${id}`;
         const headers = { 'Content-Type': 'application/x-www-form-urlencoded' };
         super(url, "GET", headers, null)
     }
