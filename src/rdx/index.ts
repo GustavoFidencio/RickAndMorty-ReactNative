@@ -6,15 +6,19 @@ const INITIAL_STATE = {
 
 const friendsReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
-        case 'addCart':
-            //criar metodo de adicionar um item ao cart
-            let { cartItems, requests } = state;
+        case 'ADD_FAVORITE':
 
-            cartItems.push(cartItems);
+            console.log('oi cai no add favorite');
+            console.log('meu id é', action.newValue);
+            
+            
+            let { ids } = state;
 
-            const newState = { requests, cartItems };
+            ids = [...ids, action.newValue];
 
-            return newState;
+            const favorites = { ids };
+            
+            return favorites;
         default:
             return state
     }

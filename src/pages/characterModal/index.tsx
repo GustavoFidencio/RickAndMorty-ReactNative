@@ -1,11 +1,12 @@
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import React, { useState, useEffect, useRef } from "react";
 import { View, ActivityIndicator, SafeAreaView, Animated } from "react-native";
 
 import { Icon } from "../../helpers";
+import { Animate } from '../../services';
 import Colors from '../../assets/colors';
 import { StorageModal } from './storage';
-import { Animate } from '../../services';
 import { Items, ItemEpisode } from './commons';
 import {
     Image,
@@ -21,6 +22,7 @@ import {
     TouchableFavorite,
     ContainerCharacter,
 } from './styles';
+import { addFavorite } from '../../rdx/actions';
 
 interface Character {
     id: number,
@@ -43,7 +45,7 @@ interface Character {
     created: string,
 }
 
-let CharacterModal: React.FC = ({ route, favorites }) => {
+let CharacterModal: React.FC = ({ route, favorites, addFavorite }) => {
 
     const { id } = route.params;
     const [isLoad, setLoad] = useState(true);
@@ -70,6 +72,9 @@ let CharacterModal: React.FC = ({ route, favorites }) => {
     }
 
     const _getFavorite = () => {
+
+        console.log(favorites, 'shuernous');
+        
         let ids = favorites.ids;
         setFavorite(ids.indexOf(id) >= 0)
     }
@@ -77,11 +82,6 @@ let CharacterModal: React.FC = ({ route, favorites }) => {
     const backgroundColor = valueAnimate.interpolate({
         inputRange: [0, 100],
         outputRange: [Colors.primary, Colors.background],
-    });
-
-    const textColor = valueAnimate.interpolate({
-        inputRange: [0, 100],
-        outputRange: [Colors.background, Colors.primary],
     });
 
     return (
@@ -133,6 +133,9 @@ let CharacterModal: React.FC = ({ route, favorites }) => {
                                     backgroundColor={backgroundColor}
                                     onPress={() => {
                                         setFavorite(!favorite)
+
+                                        addFavorite(id)
+
                                     }}
                                 >
                                     <Icon
@@ -141,13 +144,8 @@ let CharacterModal: React.FC = ({ route, favorites }) => {
                                         name={!favorite ? 'heart' : 'close'}
                                         color={favorite ? Colors.primary : Colors.background}
                                     />
-                                    <LabelFavorite textColor={backgroundColor}>
-                                        {
-                                            favorite ?
-                                                "Tirar Favorito"
-                                                :
-                                                "Favoritar"
-                                        }
+                                    <LabelFavorite textColor={favorite ? Colors.primary : Colors.background}>
+                                        {favorite ? "Tirar Favorito" : "Favoritar"}
                                     </LabelFavorite>
                                 </TouchableFavorite>
                             </ContainerButton>
@@ -161,6 +159,12 @@ let CharacterModal: React.FC = ({ route, favorites }) => {
 
 const mapStateToProps = favorites => favorites;
 
-CharacterModal = connect(mapStateToProps)(CharacterModal);
+const mapDispatchToProps = val => (
+    bindActionCreators({
+        addFavorite,
+    }, val)
+);
+
+CharacterModal = connect(mapStateToProps, mapDispatchToProps)(CharacterModal);
 
 export { CharacterModal };
