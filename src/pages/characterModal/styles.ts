@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-import { Dimensions } from "react-native";
+import { Dimensions, Animated } from "react-native";
 
 import Colors from '../../assets/colors';
 
@@ -21,22 +21,26 @@ export const ContainerButton = styled.View`
     align-items: center;
 `;
 
-export const TouchableFavorite = styled.TouchableOpacity`
+const Touchable = styled.TouchableOpacity`
     flex-direction: row;
     align-items: center;
     border-radius: 99px;
     justify-content: center;
     padding: 20px 30px 20px 30px;
-    box-shadow: 1px 1px 5px black;
-    background-color: ${Colors.primary};
+    box-shadow: 1px 1px 1.5px black;
+    background-color: ${props => props.backgroundColor};
 `;
 
-export const LabelFavorite = styled.Text`
+export const TouchableFavorite = Animated.createAnimatedComponent(Touchable);
+
+const textFavorite = styled.Text`
     font-size: 22px;
     margin-left: 10px;
     font-family: 'SulSans-Black';
-    color: ${Colors.background};
+    color: ${props => props.textColor};
 `;
+
+export const LabelFavorite = Animated.createAnimatedComponent(textFavorite);
 
 export const GoBackBar = styled.View`
     opacity: .7;
@@ -75,6 +79,6 @@ export const Center = styled.View`
     justify-content: center;
 `;
 
-export const ContainerItems =  styled.View`
+export const ContainerItems = styled.View`
     margin-top: 20px;
 `;

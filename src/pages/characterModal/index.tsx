@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from "react";
-import { View, ActivityIndicator, SafeAreaView } from "react-native";
+import { connect } from 'react-redux';
+import React, { useState, useEffect, useRef } from "react";
+import { View, ActivityIndicator, SafeAreaView, Animated } from "react-native";
 
 import { Icon } from "../../helpers";
 import Colors from '../../assets/colors';
 import { StorageModal } from './storage';
+import { Animate } from '../../services';
 import { Items, ItemEpisode } from './commons';
 import {
     Image,
@@ -41,16 +43,22 @@ interface Character {
     created: string,
 }
 
-export const CharacterModal: React.FC = ({ route }) => {
+let CharacterModal: React.FC = ({ route, favorites }) => {
 
     const { id } = route.params;
-
     const [isLoad, setLoad] = useState(true);
+    const [favorite, setFavorite] = useState(false);
     const [character, setCharacter] = useState<Character>()
+    const valueAnimate = useRef(new Animated.Value(0)).current;
 
     useEffect(() => {
-        _getCharacter()
+        _getCharacter();
+        _getFavorite();
     }, []);
+
+    useEffect(() => {
+        Animate.smooth(favorite ? 100 : 0, valueAnimate, 1800)
+    }, [favorite])
 
     const _getCharacter = () => {
         StorageModal.getCharacter(id)
@@ -60,6 +68,21 @@ export const CharacterModal: React.FC = ({ route }) => {
             })
             .finally(() => setLoad(false))
     }
+
+    const _getFavorite = () => {
+        let ids = favorites.ids;
+        setFavorite(ids.indexOf(id) >= 0)
+    }
+
+    const backgroundColor = valueAnimate.interpolate({
+        inputRange: [0, 100],
+        outputRange: [Colors.primary, Colors.background],
+    });
+
+    const textColor = valueAnimate.interpolate({
+        inputRange: [0, 100],
+        outputRange: [Colors.background, Colors.primary],
+    });
 
     return (
         <Container>
@@ -106,15 +129,25 @@ export const CharacterModal: React.FC = ({ route }) => {
                             </View>
                             <ContainerButton>
                                 <TouchableFavorite
+                                    activeOpacity={1}
+                                    backgroundColor={backgroundColor}
+                                    onPress={() => {
+                                        setFavorite(!favorite)
+                                    }}
                                 >
                                     <Icon
                                         size={22}
-                                        name={'heart'}
                                         lib={'AntDesign'}
-                                        color={Colors.background}
+                                        name={!favorite ? 'heart' : 'close'}
+                                        color={favorite ? Colors.primary : Colors.background}
                                     />
-                                    <LabelFavorite>
-                                        Favoritar
+                                    <LabelFavorite textColor={backgroundColor}>
+                                        {
+                                            favorite ?
+                                                "Tirar Favorito"
+                                                :
+                                                "Favoritar"
+                                        }
                                     </LabelFavorite>
                                 </TouchableFavorite>
                             </ContainerButton>
@@ -125,3 +158,9 @@ export const CharacterModal: React.FC = ({ route }) => {
         </Container >
     )
 }
+
+const mapStateToProps = favorites => favorites;
+
+CharacterModal = connect(mapStateToProps)(CharacterModal);
+
+export { CharacterModal };

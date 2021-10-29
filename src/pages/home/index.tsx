@@ -1,3 +1,4 @@
+import { connect } from 'react-redux';
 import React, { useState, useEffect } from "react";
 import { View, StatusBar, FlatList, ActivityIndicator } from "react-native";
 
@@ -27,7 +28,7 @@ interface Character {
     created: string,
 }
 
-export const Home: React.FC = ({ navigation }) => {
+let Home: React.FC = ({ navigation, favorites }) => {
 
     const [isLoad, setLoad] = useState(false);
     const [heroes, setHeroes] = useState<Character[]>([])
@@ -102,3 +103,9 @@ export const Home: React.FC = ({ navigation }) => {
         </Container >
     )
 }
+
+const mapStateToProps = favorites => favorites;
+
+Home = connect(mapStateToProps)(Home);
+
+export { Home };

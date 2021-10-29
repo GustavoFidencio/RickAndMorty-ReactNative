@@ -45,7 +45,7 @@ export const BackgroundInput = styled.View`
     background-color: ${Colors.backgroundDark};
 `;
 
-let backgroundIconAnimate = styled.View`
+const backgroundIconAnimate = styled.View`
     position: absolute;
     opacity: ${props => props.opacity};
 `;
