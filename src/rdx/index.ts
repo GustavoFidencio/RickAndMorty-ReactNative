@@ -1,23 +1,22 @@
 import { combineReducers } from 'redux';
 
 const INITIAL_STATE = {
-    ids: [1, 2],
+    ids: [],
 };
 
 const friendsReducer = (state = INITIAL_STATE, action) => {
+    let favorites;
+    const { ids } = state;
     switch (action.type) {
         case 'ADD_FAVORITE':
-
-            console.log('oi cai no add favorite');
-            console.log('meu id é', action.newValue);
-            
-            
-            let { ids } = state;
-
-            ids = [...ids, action.newValue];
-
-            const favorites = { ids };
-            
+            let data = [...ids, action.newValue];
+            favorites = { ids: data };
+            return favorites;
+        case 'REMOVE_FAVORITE':
+            let index = ids.indexOf(action.newValue);
+            favorites = ids;
+            if (index >= 0) favorites.splice(index, 1)
+            favorites = { ids: favorites };
             return favorites;
         default:
             return state

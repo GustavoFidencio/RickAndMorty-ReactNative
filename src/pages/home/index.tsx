@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import React, { useState, useEffect } from "react";
-import { View, StatusBar, FlatList, ActivityIndicator } from "react-native";
+import { View, StatusBar, FlatList, ActivityIndicator, Text } from "react-native";
 
 import Colors from '../../assets/colors';
 import { StorageHome } from './storage';
@@ -36,20 +36,20 @@ let Home: React.FC = ({ navigation, favorites }) => {
 
     useEffect(() => {
         _getCharacteres()
-    }, [])
+    }, []);
 
     useEffect(() => {
-        console.log(characters);
-    }, [characters])
+        if (favorites && enableFav) _getMultiplesCharacters();
+    }, [favorites])
 
     useEffect(() => {
         if (enableFav) {
             _getMultiplesCharacters();
         } else {
             setLoad(true);
-            _getCharacteres(1);
+            _getCharacteres(1, true);
         }
-    }, [enableFav])
+    }, [enableFav]);
 
     const _getMultiplesCharacters = () => {
         setLoad(true)
@@ -61,9 +61,9 @@ let Home: React.FC = ({ navigation, favorites }) => {
             .finally(() => setLoad(false))
     }
 
-    const _getCharacteres = (page: number = 0) => {
+    const _getCharacteres = (page: number = 0, hideFav = false) => {
         let oldData = characters;
-        if (characters.length) oldData = [];
+        if (hideFav) oldData = [];
         StorageHome.getCharacteres(page)
             .then((res: Character[]) => setCharac([...oldData, ...res]))
             .catch(err => {
@@ -73,9 +73,7 @@ let Home: React.FC = ({ navigation, favorites }) => {
     }
 
     const _getMoreCharacters = () => {
-        console.log(characters.length, 'dsadsadsa');
         if (isLoad || enableFav || characters.length < 20) return;
-        console.log('reachhhhehdd');
         setLoad(true);
         let pagination = Math.floor(characters.length / 20) + 1;
         _getCharacteres(pagination);
@@ -89,7 +87,12 @@ let Home: React.FC = ({ navigation, favorites }) => {
             <View style={{ flex: 1, justifyContent: 'center' }} >
                 {
                     !characters.length ?
-                        <ActivityIndicator size="large" color={Colors.primary} />
+                        enableFav ?
+                            <Text>
+                                Voce nao possui nenhum favorito
+                            </Text>
+                            :
+                            < ActivityIndicator size="large" color={Colors.primary} />
                         :
                         <FlatList<Character>
                             data={characters}
@@ -118,10 +121,7 @@ let Home: React.FC = ({ navigation, favorites }) => {
                                 </View>
                             }
                             onEndReached={_getMoreCharacters}
-                            // getItemLayout={(_, index) => (
-                            //     { length: 200, offset: 200 * index, index }
-                            // )}
-                            onEndReachedThreshold={.1}
+                            onEndReachedThreshold={.8}
                             keyExtractor={({ id }: { id: number }) => String(id)}
                         />
                 }

@@ -22,7 +22,7 @@ import {
     TouchableFavorite,
     ContainerCharacter,
 } from './styles';
-import { addFavorite } from '../../rdx/actions';
+import { addFavorite, removeFavorite } from '../../rdx/actions';
 
 interface Character {
     id: number,
@@ -45,7 +45,7 @@ interface Character {
     created: string,
 }
 
-let CharacterModal: React.FC = ({ route, favorites, addFavorite }) => {
+let CharacterModal: React.FC = ({ route, favorites, addFavorite, removeFavorite }) => {
 
     const { id } = route.params;
     const [isLoad, setLoad] = useState(true);
@@ -72,11 +72,14 @@ let CharacterModal: React.FC = ({ route, favorites, addFavorite }) => {
     }
 
     const _getFavorite = () => {
-
-        console.log(favorites, 'shuernous');
-        
         let ids = favorites.ids;
         setFavorite(ids.indexOf(id) >= 0)
+    }
+
+    const _onPressFav = () => {
+        setFavorite(!favorite)
+        if (favorite) removeFavorite(id);
+        else addFavorite(id);
     }
 
     const backgroundColor = valueAnimate.interpolate({
@@ -130,13 +133,8 @@ let CharacterModal: React.FC = ({ route, favorites, addFavorite }) => {
                             <ContainerButton>
                                 <TouchableFavorite
                                     activeOpacity={1}
+                                    onPress={_onPressFav}
                                     backgroundColor={backgroundColor}
-                                    onPress={() => {
-                                        setFavorite(!favorite)
-
-                                        addFavorite(id)
-
-                                    }}
                                 >
                                     <Icon
                                         size={22}
@@ -162,6 +160,7 @@ const mapStateToProps = favorites => favorites;
 const mapDispatchToProps = val => (
     bindActionCreators({
         addFavorite,
+        removeFavorite,
     }, val)
 );
 
