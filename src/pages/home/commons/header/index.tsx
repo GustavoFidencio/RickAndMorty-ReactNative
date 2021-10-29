@@ -14,7 +14,7 @@ import { Animated } from "react-native";
 import { Animate } from '../../../../services';
 import Colors from '../../../../assets/colors';
 
-export const Header = memo(({ }) => {
+export const Header = memo(({ setFav }) => {
 
     const [favorite, setFavorite] = useState(false);
     const opacity = useRef(new Animated.Value(0)).current;
@@ -23,11 +23,16 @@ export const Header = memo(({ }) => {
         Animate.smooth(Number(favorite), opacity, 600)
     }, [favorite])
 
+    const _onPress = () => {
+        setFav();
+        setFavorite(!favorite);
+    }
+
     return (
         <Container>
             <ContainerTitleFavorite>
                 <Title>Personagens </Title>
-                <BackgroundIcon onPress={() => setFavorite(!favorite)}>
+                <BackgroundIcon onPress={_onPress}>
                     <Icon
                         size={22}
                         name={'hearto'}

@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 
 const INITIAL_STATE = {
-    ids: [0, 1, 2],
+    ids: [1, 2],
 };
 
 const friendsReducer = (state = INITIAL_STATE, action) => {

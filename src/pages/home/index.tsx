@@ -31,15 +31,41 @@ interface Character {
 let Home: React.FC = ({ navigation, favorites }) => {
 
     const [isLoad, setLoad] = useState(false);
-    const [heroes, setHeroes] = useState<Character[]>([])
+    const [enableFav, setFav] = useState(false);
+    const [characters, setCharac] = useState<Character[]>([])
 
     useEffect(() => {
         _getCharacteres()
     }, [])
 
+    useEffect(() => {
+        console.log(characters);
+    }, [characters])
+
+    useEffect(() => {
+        if (enableFav) {
+            _getMultiplesCharacters();
+        } else {
+            setLoad(true);
+            _getCharacteres(1);
+        }
+    }, [enableFav])
+
+    const _getMultiplesCharacters = () => {
+        setLoad(true)
+        StorageHome.getMultipleCharacteres(favorites.ids)
+            .then((res: Character[]) => setCharac(res))
+            .catch(err => {
+                console.log(err);
+            })
+            .finally(() => setLoad(false))
+    }
+
     const _getCharacteres = (page: number = 0) => {
+        let oldData = characters;
+        if (characters.length) oldData = [];
         StorageHome.getCharacteres(page)
-            .then((res: Character[]) => setHeroes([...heroes, ...res]))
+            .then((res: Character[]) => setCharac([...oldData, ...res]))
             .catch(err => {
                 console.log(err);
             })
@@ -47,10 +73,11 @@ let Home: React.FC = ({ navigation, favorites }) => {
     }
 
     const _getMoreCharacters = () => {
-        if (isLoad) return;
+        console.log(characters.length, 'dsadsadsa');
+        if (isLoad || enableFav || characters.length < 20) return;
+        console.log('reachhhhehdd');
         setLoad(true);
-        let pagination = Math.floor(heroes.length / 20) + 1;
-        console.log(pagination);
+        let pagination = Math.floor(characters.length / 20) + 1;
         _getCharacteres(pagination);
     }
 
@@ -58,15 +85,14 @@ let Home: React.FC = ({ navigation, favorites }) => {
         <Container>
             <SafeArea />
             <StatusBar barStyle={'light-content'} />
-            <Header
-            />
+            <Header setFav={() => setFav(!enableFav)} backgroundColor={Colors.background} />
             <View style={{ flex: 1, justifyContent: 'center' }} >
                 {
-                    !heroes.length ?
+                    !characters.length ?
                         <ActivityIndicator size="large" color={Colors.primary} />
                         :
                         <FlatList<Character>
-                            data={heroes}
+                            data={characters}
                             bounces={false}
                             numColumns={2}
                             style={{ paddingHorizontal: 7.5 }}
@@ -95,7 +121,7 @@ let Home: React.FC = ({ navigation, favorites }) => {
                             // getItemLayout={(_, index) => (
                             //     { length: 200, offset: 200 * index, index }
                             // )}
-                            onEndReachedThreshold={.8}
+                            onEndReachedThreshold={.1}
                             keyExtractor={({ id }: { id: number }) => String(id)}
                         />
                 }
