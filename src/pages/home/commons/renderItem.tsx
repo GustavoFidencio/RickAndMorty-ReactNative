@@ -4,12 +4,13 @@ import { Icon } from '../../../helpers';
 import Colors from '../../../assets/colors';
 import { Text, View, StyleSheet, TouchableOpacity, Image } from "react-native";
 
-export const RenderItem = memo(({ item, index }) => {
-    
+export const RenderItem = memo(({ item, index, navigation }) => {
+
     const { name, gender, image, id } = item;
 
     return (
         <TouchableOpacity
+            onPress={() => navigation.navigate('CharacterModal', { id })}
             style={{ ...styles.container, marginTop: index % 2 != 0 ? 20 : 0 }}
         >
             <Image

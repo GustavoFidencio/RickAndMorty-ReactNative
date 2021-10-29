@@ -12,11 +12,12 @@
   "dependencies": {
     "@react-native-async-storage/async-storage": "react-native-community/async-storage",
     "@react-navigation/native": "^6.0.6",
-    "@react-navigation/native-stack": "^6.2.5",
+    "@react-navigation/stack": "^6.0.11",
     "axios": "^0.24.0",
     "qs": "^6.10.1",
     "react": "17.0.2",
     "react-native": "0.66.1",
+    "react-native-gesture-handler": "^1.10.3",
     "react-native-safe-area-context": "^3.3.2",
     "react-native-screens": "^3.8.0",
     "react-native-vector-icons": "^9.0.0",

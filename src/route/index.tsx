@@ -1,10 +1,10 @@
 import React from "react";
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createStackNavigator, TransitionPresets } from '@react-navigation/stack';
 
-import { Home } from "../pages";
+import { Home, CharacterModal } from "../pages";
 
-const Stack = createNativeStackNavigator();
+const Stack = createStackNavigator();
 
 export const App: React.FC = ({ }) => {
 
@@ -15,6 +15,14 @@ export const App: React.FC = ({ }) => {
                     name="Home"
                     component={Home}
                     options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="CharacterModal"
+                    component={CharacterModal}
+                    options={{
+                        headerShown: false,
+                        ...TransitionPresets.ModalPresentationIOS,
+                    }}
                 />
             </Stack.Navigator>
         </NavigationContainer>

@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Text, View, SafeAreaView, StatusBar, FlatList, ActivityIndicator, TextInput } from "react-native";
+import { View, StatusBar, FlatList, ActivityIndicator } from "react-native";
 
-import { Icon } from '../../helpers';
 import Colors from '../../assets/colors';
 import { StorageHome } from './storage';
-import { Title, SafeArea, Container } from './styles';
+import { SafeArea, Container } from './styles';
 import { RenderItem, Header } from './commons';
 
 interface Character {
@@ -28,7 +27,7 @@ interface Character {
     created: string,
 }
 
-export const Home: React.FC = ({ }) => {
+export const Home: React.FC = ({ navigation }) => {
 
     const [isLoad, setLoad] = useState(false);
     const [heroes, setHeroes] = useState<Character[]>([])
@@ -59,73 +58,7 @@ export const Home: React.FC = ({ }) => {
             <SafeArea />
             <StatusBar barStyle={'light-content'} />
             <Header
-            
             />
-            {/* <View style={{ marginBottom: 5 }}>
-                <View
-                    style={{
-                        width: '100%',
-                        flexDirection: 'row',
-                        justifyContent: 'space-between',
-                    }}
-                >
-                    <Title>Personagens </Title>
-                    <View
-                        style={{
-                            width: 40,
-                            height: 40,
-                            marginRight: 10,
-                            borderRadius: 10,
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            backgroundColor: Colors.backgroundDark,
-                        }}
-                    >
-                        <Icon
-                            size={30}
-                            name={'heart'}
-                            lib={'EvilIcons'}
-                            color={Colors.primary}
-                        />
-                    </View>
-                </View>
-                <View
-                    style={{
-                        borderRadius: 10,
-                        flexDirection: 'row',
-                        marginHorizontal: 10,
-                        backgroundColor: Colors.backgroundDark,
-                        marginTop: 5,
-                    }}
-                >
-                    <TextInput
-                        style={{
-                            flex: 1,
-                            paddingLeft: 10,
-                        }}
-                        placeholder={'Pesquisar um personagem'}
-                    />
-                    <View
-                        style={{
-                            width: 40,
-                            height: 40,
-                            borderRadius: 99,
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            backgroundColor: Colors.backgroundDark,
-                        }}
-                    >
-                        <Icon
-                            size={20}
-                            name={'search'}
-                            lib={'FontAwesome'}
-                            color={Colors.primary}
-                        />
-                    </View>
-
-                </View>
-
-            </View> */}
             <View style={{ flex: 1, justifyContent: 'center' }} >
                 {
                     !heroes.length ?
@@ -136,9 +69,13 @@ export const Home: React.FC = ({ }) => {
                             bounces={false}
                             numColumns={2}
                             style={{ paddingHorizontal: 7.5 }}
-                            // ListHeaderComponentStyle={{ alignItems: 'flex-start' }}
-                            // ListHeaderComponent={() => }
-                            renderItem={({ item, index }) => <RenderItem item={item} index={index} />}
+                            renderItem={({ item, index }) =>
+                                <RenderItem
+                                    item={item}
+                                    index={index}
+                                    navigation={navigation}
+                                />
+                            }
                             ListFooterComponent={() =>
                                 <View style={{ minHeight: 20 }} >
                                     {
