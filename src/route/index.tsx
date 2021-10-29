@@ -21,6 +21,8 @@ export const App: React.FC = ({ }) => {
                     component={CharacterModal}
                     options={{
                         headerShown: false,
+                        gestureEnabled: true,
+                        cardOverlayEnabled: true,
                         ...TransitionPresets.ModalPresentationIOS,
                     }}
                 />
