@@ -1,4 +1,4 @@
-export const addFavorite = id => ({
+export const addFavorite = (id: number) => ({
     type: 'ADD_FAVORITE',
     newValue: id
 });

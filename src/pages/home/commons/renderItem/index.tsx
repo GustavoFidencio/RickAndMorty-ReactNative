@@ -4,8 +4,21 @@ import { Icon } from '../../../../helpers';
 import Colors from '../../../../assets/colors';
 import { Container, Image, ContainerInfo, LabelName } from './styles';
 
-export const RenderItem = memo(({ item, index, navigation }) => {
-    
+interface Props {
+    item: {
+        name: string,
+        gender: string,
+        image: string,
+        id: number
+    },
+    index: number,
+    navigation: {
+        navigate: (string, { id }) => void
+    }
+}
+
+export const RenderItem = memo(({ item, index, navigation }: Props) => {
+
     const { name, gender, image, id } = item;
 
     return (

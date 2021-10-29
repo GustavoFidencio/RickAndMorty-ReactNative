@@ -11,8 +11,7 @@ export class StorageHome {
         })
     }
 
-
-    static getMultipleCharacteres(id: [number]): any {
+    static getMultipleCharacteres(id: number[]): any {
         let data = id.join();
         return new Promise((resolve, reject) => {
             Executor.run(new GetMultipleCharacteres(data))

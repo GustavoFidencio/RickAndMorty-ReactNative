@@ -14,7 +14,11 @@ import { Animated } from "react-native";
 import { Animate } from '../../../../services';
 import Colors from '../../../../assets/colors';
 
-export const Header = memo(({ setFav }) => {
+interface Props {
+    setFav: () => void,
+}
+
+export const Header = memo(({ setFav }: Props) => {
 
     const [favorite, setFavorite] = useState(false);
     const opacity = useRef(new Animated.Value(0)).current;

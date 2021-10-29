@@ -2,16 +2,17 @@ import React, { memo } from "react"
 
 import { Container, InfoLocation, LabelLocation } from './styles';
 
-export const ItemEpisode = memo(({ info }) => {
+interface Props {
+    info: number,
+}
 
-    return (
-        <Container>
-            <InfoLocation>
-                {info}
-            </InfoLocation>
-            <LabelLocation>
-                Episódios
-            </LabelLocation>
-        </Container>
-    )
-})
+export const ItemEpisode = memo(({ info }: Props) =>
+    <Container>
+        <InfoLocation>
+            {info}
+        </InfoLocation>
+        <LabelLocation>
+            Episódios
+        </LabelLocation>
+    </Container>
+)

@@ -4,7 +4,12 @@ import { Icon } from '../../../../helpers';
 import Colors from '../../../../assets/colors';
 import { Container, InfoLocation, LabelLocation, ContainerIconLabel } from './styles';
 
-export const Items = memo(({ info, label }) => {
+interface Props {
+    info: string,
+    label: string
+}
+
+export const Items = memo(({ info, label }: Props) => {
 
     return (
         <Container>

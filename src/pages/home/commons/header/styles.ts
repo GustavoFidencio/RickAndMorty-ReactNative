@@ -22,7 +22,7 @@ export const BackgroundIcon = styled.TouchableOpacity`
     background-color: ${Colors.backgroundDark};
 `;
 
-export const ContainerTitleFavorite = styled.TouchableOpacity`
+export const ContainerTitleFavorite = styled.View`
     width: 100%;
     flex-direction: row;
     align-items: flex-end;
@@ -32,6 +32,7 @@ export const ContainerTitleFavorite = styled.TouchableOpacity`
 
 export const TextInput = styled.TextInput`
     flex: 1;
+    color: white;
 `;
 
 export const BackgroundInput = styled.View`

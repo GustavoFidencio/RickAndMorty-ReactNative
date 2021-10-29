@@ -1,13 +1,3 @@
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import React, { useState, useEffect, useRef } from "react";
-import { View, ActivityIndicator, SafeAreaView, Animated } from "react-native";
-
-import { Icon } from "../../helpers";
-import { Animate } from '../../services';
-import Colors from '../../assets/colors';
-import { StorageModal } from './storage';
-import { Items, ItemEpisode } from './commons';
 import {
     Image,
     Center,
@@ -22,6 +12,17 @@ import {
     TouchableFavorite,
     ContainerCharacter,
 } from './styles';
+
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import React, { useState, useEffect, useRef } from "react";
+import { View, ActivityIndicator, SafeAreaView, Animated } from "react-native";
+
+import { Icon } from "../../helpers";
+import { Animate } from '../../services';
+import Colors from '../../assets/colors';
+import { StorageModal } from './storage';
+import { Items, ItemEpisode } from './commons';
 import { addFavorite, removeFavorite } from '../../rdx/actions';
 
 interface Character {
@@ -45,12 +46,27 @@ interface Character {
     created: string,
 }
 
-let CharacterModal: React.FC = ({ route, favorites, addFavorite, removeFavorite }) => {
+interface Props {
+    route: {
+        params: {
+            id: number
+        }
+    },
+    favorites: {
+        ids: [number]
+    },
+    addFavorite: (id: number) => void,
+    removeFavorite: (id: number) => void,
+}
 
-    const { id } = route.params;
+let CharacterModal: React.FC<Props> = ({ route, favorites, addFavorite, removeFavorite }) => {
+
+    const { id }: { id: number } = route.params;
+
     const [isLoad, setLoad] = useState(true);
     const [favorite, setFavorite] = useState(false);
     const [character, setCharacter] = useState<Character>()
+
     const valueAnimate = useRef(new Animated.Value(0)).current;
 
     useEffect(() => {
@@ -65,9 +81,7 @@ let CharacterModal: React.FC = ({ route, favorites, addFavorite, removeFavorite 
     const _getCharacter = () => {
         StorageModal.getCharacter(id)
             .then(res => setCharacter(res))
-            .catch(err => {
-                console.log(err);
-            })
+            .catch(err => console.log(err))
             .finally(() => setLoad(false))
     }
 
@@ -115,18 +129,9 @@ let CharacterModal: React.FC = ({ route, favorites, addFavorite, removeFavorite 
                                     </ContainerLabels>
                                 </ContainerCharacter>
                                 <ContainerItems>
-                                    <Items
-                                        label={'Localização'}
-                                        info={character.location.name}
-                                    />
-                                    <Items
-                                        label={'Origem'}
-                                        info={character.origin.name}
-                                    />
-                                    <Items
-                                        label={'Gênero'}
-                                        info={character.gender}
-                                    />
+                                    <Items label={'Localização'} info={character.location.name} />
+                                    <Items label={'Origem'} info={character.origin.name} />
+                                    <Items label={'Gênero'} info={character.gender} />
                                 </ContainerItems>
                                 <ItemEpisode info={character.episode.length} />
                             </View>

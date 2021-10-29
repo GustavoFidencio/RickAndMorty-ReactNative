@@ -1,10 +1,24 @@
 import { combineReducers } from 'redux';
 
-const INITIAL_STATE = {
+interface Prop {
+    state: {
+        ids: [number]
+    }
+    action: {
+        newValue: number
+        type: any
+    }
+}
+
+interface InitialProps {
+    ids: number[]
+}
+
+const INITIAL_STATE: InitialProps = {
     ids: [],
 };
 
-const friendsReducer = (state = INITIAL_STATE, action) => {
+const friendsReducer = (state = INITIAL_STATE, action): Prop => {
     let favorites;
     const { ids } = state;
     switch (action.type) {

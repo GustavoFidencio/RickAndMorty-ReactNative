@@ -28,14 +28,4 @@ export class Animate {
             easing: Easing.out(Easing.exp),
         }).start();
     }
-
-    // static elastic(toValue, state, duration = 1500, useNativeDriver = false, onComplete) {
-    //     Animated.timing(state, {
-    //         toValue,
-    //         duration,
-    //         onComplete,
-    //         useNativeDriver,
-    //         easing: Easing.bounce,
-    //     }).start();
-    // }
 }
