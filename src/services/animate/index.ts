@@ -7,7 +7,7 @@ export class Animate {
         state: any,
         duration: number = 1500,
         useNativeDriver: boolean = false,
-    ) {
+    ): void {
         Animated.timing(state, {
             toValue,
             duration,
@@ -20,7 +20,7 @@ export class Animate {
         state: any,
         duration: number = 1500,
         useNativeDriver: boolean = false,
-    ) {
+    ): void {
         Animated.timing(state, {
             toValue,
             duration,

@@ -9,24 +9,21 @@ interface Props {
     label: string
 }
 
-export const Items = memo(({ info, label }: Props) => {
-
-    return (
-        <Container>
-            <ContainerIconLabel >
-                <Icon
-                    size={23}
-                    lib={'Ionicons'}
-                    name={'location'}
-                    color={Colors.primary}
-                />
-                <LabelLocation>
-                    {label}
-                </LabelLocation>
-            </ContainerIconLabel>
-            <InfoLocation>
-                {info}
-            </InfoLocation>
-        </Container>
-    )
-})
+export const Items = memo(({ info, label }: Props) =>
+    <Container>
+        <ContainerIconLabel >
+            <Icon
+                size={23}
+                lib={'Ionicons'}
+                name={'location'}
+                color={Colors.primary}
+            />
+            <LabelLocation>
+                {label}
+            </LabelLocation>
+        </ContainerIconLabel>
+        <InfoLocation>
+            {info}
+        </InfoLocation>
+    </Container>
+)

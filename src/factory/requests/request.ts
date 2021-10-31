@@ -19,19 +19,19 @@ export class Request {
         this._params = params ? qs.stringify(params) : null;
     }
 
-    get url() {
+    get url(): string {
         return this._url;
     }
 
-    get method() {
+    get method(): string {
         return this._method;
     }
 
-    get header() {
+    get header(): Object {
         return this._header;
     }
 
-    get params() {
+    get params(): Object {
         return this._params;
     }
 }

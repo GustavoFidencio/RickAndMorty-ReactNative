@@ -13,7 +13,7 @@ interface Props {
     },
     index: number,
     navigation: {
-        navigate: (string, { id }) => void
+        navigate: (data: string, { id: any }) => void
     }
 }
 
@@ -33,14 +33,9 @@ export const RenderItem = memo(({ item, index, navigation }: Props) => {
                 </LabelName>
                 <Icon
                     size={20}
-                    color={Colors.primary}
-                    name={
-                        gender == 'Female' ?
-                            'female-symbol'
-                            :
-                            'male-symbol'
-                    }
                     lib={'Foundation'}
+                    color={Colors.primary}
+                    name={gender == 'Female' ? 'female-symbol' : 'male-symbol'}
                 />
             </ContainerInfo>
         </Container>

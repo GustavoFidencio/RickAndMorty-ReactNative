@@ -13,6 +13,7 @@
     "@react-native-async-storage/async-storage": "react-native-community/async-storage",
     "@react-navigation/native": "^6.0.6",
     "@react-navigation/stack": "^6.0.11",
+    "@types/axios": "^0.14.0",
     "@types/redux": "^3.6.0",
     "axios": "^0.24.0",
     "qs": "^6.10.1",

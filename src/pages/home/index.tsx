@@ -13,11 +13,11 @@ interface Character {
     name: string,
     status: string,
     species: string,
-    type?: string,
+    type: string,
     gender: string,
     origin: {
         name: string,
-        url?: string,
+        url: string,
     },
     location: {
         name: string,
@@ -30,8 +30,12 @@ interface Character {
 }
 
 interface Props {
-    navigation: object,
-    favorites: [number]
+    navigation: {
+        navigate: (data: string, { id: any }) => void
+    },
+    favorites: {
+        ids: [number]
+    }
 }
 
 let Home: React.FC<Props> = ({ navigation, favorites }) => {
@@ -40,6 +44,7 @@ let Home: React.FC<Props> = ({ navigation, favorites }) => {
     const [limit, setLimit] = useState(0);
     const [isLoad, setLoad] = useState(true);
     const [enableFav, setFav] = useState(false);
+    const [isSearch, setSearch] = useState(false);
     const [loadMore, setMore] = useState(false);
     const [characters, setCharac] = useState<Character[]>([])
 
@@ -54,7 +59,7 @@ let Home: React.FC<Props> = ({ navigation, favorites }) => {
     useEffect(() => {
         if (enableFav) _getMultiplesCharacters();
         else {
-            setErr(false);
+            setErr('');
             setLoad(true);
             _getCharacteres(1, true);
         }
@@ -84,7 +89,7 @@ let Home: React.FC<Props> = ({ navigation, favorites }) => {
     }
 
     const _getMoreCharacters = () => {
-        if (loadMore || enableFav) return;
+        if (loadMore || enableFav || isSearch) return;
         let pagination = Math.floor(characters.length / 20) + 1;
         if (pagination > limit) return;
         setMore(true);
@@ -99,6 +104,7 @@ let Home: React.FC<Props> = ({ navigation, favorites }) => {
                 setErr={setErr}
                 fav={enableFav}
                 setLoad={setLoad}
+                setSearch={setSearch}
                 setCharac={setCharac}
                 setFav={() => setFav(!enableFav)}
             />
@@ -109,8 +115,8 @@ let Home: React.FC<Props> = ({ navigation, favorites }) => {
                         isLoad ? <ActivityIndicator size="large" color={Colors.primary} />
                             :
                             <FlatList<Character>
-                                data={characters}
                                 bounces={false}
+                                data={characters}
                                 numColumns={2}
                                 onEndReachedThreshold={.8}
                                 style={{ paddingHorizontal: 7.5 }}
@@ -125,7 +131,7 @@ let Home: React.FC<Props> = ({ navigation, favorites }) => {
     )
 }
 
-const mapStateToProps = favorites => favorites;
+const mapStateToProps = (favorites: { ids: [number] }) => favorites;
 
 Home = connect(mapStateToProps)(Home);
 

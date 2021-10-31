@@ -105,8 +105,7 @@ let CharacterModal: React.FC<Props> = ({ route, favorites, addFavorite, removeFa
         <Container>
             <Center>
                 {
-                    isLoad ?
-                        <ActivityIndicator size="large" color={Colors.primary} />
+                    isLoad ? <ActivityIndicator size="large" color={Colors.primary} />
                         :
                         <>
                             <View style={{ flex: 1 }}>
@@ -160,7 +159,7 @@ let CharacterModal: React.FC<Props> = ({ route, favorites, addFavorite, removeFa
     )
 }
 
-const mapStateToProps = favorites => favorites;
+const mapStateToProps = (favorites: { ids: [number] }) => favorites;
 
 const mapDispatchToProps = val => (
     bindActionCreators({
