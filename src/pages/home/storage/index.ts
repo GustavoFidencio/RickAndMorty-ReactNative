@@ -1,5 +1,5 @@
 import { Executor } from '../../../factory/executor';
-import { GetCharacteres, GetMultipleCharacteres } from '../../../factory/requests';
+import { GetCharacteres, GetMultipleCharacteres, GetCharacterByName } from '../../../factory/requests';
 
 export class StorageHome {
 
@@ -16,6 +16,14 @@ export class StorageHome {
         return new Promise((resolve, reject) => {
             Executor.run(new GetMultipleCharacteres(data))
                 .then(res => resolve(res.data))
+                .catch(err => reject(err.response));
+        })
+    }
+
+    static getByName(name: string): any {
+        return new Promise((resolve, reject) => {
+            Executor.run(new GetCharacterByName(name))
+                .then(res => resolve(res.data.results))
                 .catch(err => reject(err.response));
         })
     }

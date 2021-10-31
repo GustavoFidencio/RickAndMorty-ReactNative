@@ -36,6 +36,7 @@ interface Props {
 
 let Home: React.FC<Props> = ({ navigation, favorites }) => {
 
+    const [err, setErr] = useState('');
     const [isLoad, setLoad] = useState(false);
     const [enableFav, setFav] = useState(false);
     const [characters, setCharac] = useState<Character[]>([])
@@ -43,6 +44,10 @@ let Home: React.FC<Props> = ({ navigation, favorites }) => {
     useEffect(() => {
         _getCharacteres()
     }, []);
+
+    useEffect(() => {
+        if (enableFav && !characters.length) setErr('Você não possui nenhum favorito...')
+    }, [enableFav, characters])
 
     useEffect(() => {
         if (favorites && enableFav) _getMultiplesCharacters();
@@ -62,7 +67,7 @@ let Home: React.FC<Props> = ({ navigation, favorites }) => {
         StorageHome.getMultipleCharacteres(favorites.ids)
             .then((res: Character[]) => {
                 if (res.length == undefined) res = [res];
-                setCharac(res)
+                setCharac(res);
             })
             .catch(err => console.log(err))
             .finally(() => setLoad(false))
@@ -88,13 +93,18 @@ let Home: React.FC<Props> = ({ navigation, favorites }) => {
         <Container>
             <SafeArea />
             <StatusBar barStyle={'light-content'} backgroundColor={Colors.background} />
-            <Header setFav={() => setFav(!enableFav)} />
+            <Header
+                setErr={setErr}
+                fav={enableFav}
+                setCharac={setCharac}
+                setFav={() => setFav(!enableFav)}
+            />
             <ContainerList>
                 {
                     !characters.length ?
-                        enableFav ?
+                        err != '' ?
                             <LabelNoneFav>
-                                Voce não possui nenhum favorito...
+                                {err}
                             </LabelNoneFav>
                             :
                             <ActivityIndicator size="large" color={Colors.primary} />
