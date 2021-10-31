@@ -20,9 +20,10 @@ interface Props {
     fav: boolean,
     setCharac: ([]) => void,
     setErr: (string) => void,
+    setLoad: (boolean) => void,
 }
 
-export const Header = memo(({ setFav, fav, setCharac, setErr }: Props) => {
+export const Header = memo(({ setFav, fav, setCharac, setErr, setLoad }: Props) => {
 
     const inputRef = useRef(null);
     const opacity = useRef(new Animated.Value(0)).current;
@@ -33,21 +34,18 @@ export const Header = memo(({ setFav, fav, setCharac, setErr }: Props) => {
 
     useEffect(() => {
         if (fav) inputRef.current.clear()
-    }, [fav])
+    }, [fav]);
 
-    const _onPress = () => {
-        setFav();
-    }
+    const _onPress = () => setFav();
 
     const _getCharacterByName = (name: string) => {
-        if (name == '') setErr('');
+        setErr('')
         if (fav) setFav();
+        setLoad(true)
         StorageHome.getByName(name)
             .then(res => setCharac(res))
-            .catch(() => {
-                setCharac([])
-                setErr('Personagem não encontrado')
-            })
+            .catch(() => setErr('Personagem não encontrado'))
+            .finally(() => setLoad(false))
     }
 
     return (

@@ -12,9 +12,10 @@ export class StorageHome {
     }
 
     static getMultipleCharacteres(id: number[]): any {
-        let data = id.join();
         return new Promise((resolve, reject) => {
-            Executor.run(new GetMultipleCharacteres(data))
+            if (!id.length) return reject();
+            let ids = id.join();
+            Executor.run(new GetMultipleCharacteres(ids))
                 .then(res => {
                     let data = res.data
                     if (data.length == undefined) data = [data];

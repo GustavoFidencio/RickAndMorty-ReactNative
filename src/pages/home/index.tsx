@@ -1,4 +1,4 @@
-import { SafeArea, Container, ContainerList, LabelNoneFav, ContainerFooter, LoadBottom } from './styles';
+import { SafeArea, Container, ContainerList, LabelNoneFav } from './styles';
 
 import { connect } from 'react-redux';
 import React, { useState, useEffect } from "react";
@@ -6,7 +6,7 @@ import { StatusBar, FlatList, ActivityIndicator } from "react-native";
 
 import Colors from '../../assets/colors';
 import { StorageHome } from './storage';
-import { RenderItem, Header } from './commons';
+import { RenderItem, Header, FooterComponent } from './commons';
 
 interface Character {
     id: number,
@@ -38,17 +38,14 @@ let Home: React.FC<Props> = ({ navigation, favorites }) => {
 
     const [err, setErr] = useState('');
     const [limit, setLimit] = useState(0);
-    const [isLoad, setLoad] = useState(false);
+    const [isLoad, setLoad] = useState(true);
     const [enableFav, setFav] = useState(false);
+    const [loadMore, setMore] = useState(false);
     const [characters, setCharac] = useState<Character[]>([])
 
     useEffect(() => {
         _getCharacteres()
     }, []);
-
-    useEffect(() => {
-        if (enableFav && !characters.length) setErr('Você não possui nenhum favorito...')
-    }, [enableFav, characters])
 
     useEffect(() => {
         if (favorites && enableFav) _getMultiplesCharacters();
@@ -57,17 +54,17 @@ let Home: React.FC<Props> = ({ navigation, favorites }) => {
     useEffect(() => {
         if (enableFav) _getMultiplesCharacters();
         else {
+            setErr(false);
             setLoad(true);
             _getCharacteres(1, true);
         }
     }, [enableFav]);
 
     const _getMultiplesCharacters = () => {
-        if (!favorites.ids.length) return setCharac([]);
         setLoad(true)
         StorageHome.getMultipleCharacteres(favorites.ids)
             .then((res: Character[]) => setCharac(res))
-            .catch(err => console.log(err))
+            .catch(() => setErr('Você não possui nenhum favorito...'))
             .finally(() => setLoad(false))
     }
 
@@ -80,14 +77,17 @@ let Home: React.FC<Props> = ({ navigation, favorites }) => {
                 setCharac([...oldData, ...results]);
             })
             .catch(() => setErr('Ops, tivemos alguns problemas...'))
-            .finally(() => setLoad(false))
+            .finally(() => {
+                setLoad(false)
+                setMore(false)
+            })
     }
 
     const _getMoreCharacters = () => {
-        if (isLoad || enableFav || characters.length < 20) return;
+        if (loadMore || enableFav) return;
         let pagination = Math.floor(characters.length / 20) + 1;
         if (pagination > limit) return;
-        setLoad(true);
+        setMore(true);
         _getCharacteres(pagination);
     }
 
@@ -98,34 +98,27 @@ let Home: React.FC<Props> = ({ navigation, favorites }) => {
             <Header
                 setErr={setErr}
                 fav={enableFav}
+                setLoad={setLoad}
                 setCharac={setCharac}
                 setFav={() => setFav(!enableFav)}
             />
             <ContainerList>
                 {
-                    !characters.length ?
-                        err != '' ?
-                            <LabelNoneFav>
-                                {err}
-                            </LabelNoneFav>
-                            :
-                            <ActivityIndicator size="large" color={Colors.primary} />
+                    err != '' ? <LabelNoneFav> {err} </LabelNoneFav>
                         :
-                        <FlatList<Character>
-                            data={characters}
-                            bounces={false}
-                            numColumns={2}
-                            onEndReachedThreshold={.8}
-                            style={{ paddingHorizontal: 7.5 }}
-                            onEndReached={_getMoreCharacters}
-                            keyExtractor={({ id }: { id: number }) => String(id)}
-                            renderItem={({ item, index }) => <RenderItem item={item} index={index} navigation={navigation} />}
-                            ListFooterComponent={() =>
-                                <ContainerFooter>
-                                    {isLoad && <LoadBottom size="small" color={Colors.primary} />}
-                                </ContainerFooter>
-                            }
-                        />
+                        isLoad ? <ActivityIndicator size="large" color={Colors.primary} />
+                            :
+                            <FlatList<Character>
+                                data={characters}
+                                bounces={false}
+                                numColumns={2}
+                                onEndReachedThreshold={.8}
+                                style={{ paddingHorizontal: 7.5 }}
+                                onEndReached={_getMoreCharacters}
+                                keyExtractor={({ id }: { id: number }) => String(id)}
+                                ListFooterComponent={() => <FooterComponent load={loadMore} />}
+                                renderItem={({ item, index }) => <RenderItem item={item} index={index} navigation={navigation} />}
+                            />
                 }
             </ContainerList>
         </Container >

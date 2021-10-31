@@ -22,11 +22,3 @@ export const LabelNoneFav = styled.Text`
     text-align: center;
     font-family: 'SulSans-BoldItalic';
 `;
-
-export const ContainerFooter = styled.View`
-    min-height: 20px;
-`;
-
-export const LoadBottom = styled.ActivityIndicator`
-    margin: 15px 0 15px 0;
-`;
