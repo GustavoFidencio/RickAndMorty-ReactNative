@@ -37,6 +37,7 @@ interface Props {
 let Home: React.FC<Props> = ({ navigation, favorites }) => {
 
     const [err, setErr] = useState('');
+    const [limit, setLimit] = useState(0);
     const [isLoad, setLoad] = useState(false);
     const [enableFav, setFav] = useState(false);
     const [characters, setCharac] = useState<Character[]>([])
@@ -65,10 +66,7 @@ let Home: React.FC<Props> = ({ navigation, favorites }) => {
         if (!favorites.ids.length) return setCharac([]);
         setLoad(true)
         StorageHome.getMultipleCharacteres(favorites.ids)
-            .then((res: Character[]) => {
-                if (res.length == undefined) res = [res];
-                setCharac(res);
-            })
+            .then((res: Character[]) => setCharac(res))
             .catch(err => console.log(err))
             .finally(() => setLoad(false))
     }
@@ -77,15 +75,19 @@ let Home: React.FC<Props> = ({ navigation, favorites }) => {
         let oldData = characters;
         if (hideFav) oldData = [];
         StorageHome.getCharacteres(page)
-            .then((res: Character[]) => setCharac([...oldData, ...res]))
-            .catch(err => console.log(err))
+            .then(({ info, results }) => {
+                setLimit(info.pages);
+                setCharac([...oldData, ...results]);
+            })
+            .catch(() => setErr('Ops, tivemos alguns problemas...'))
             .finally(() => setLoad(false))
     }
 
     const _getMoreCharacters = () => {
         if (isLoad || enableFav || characters.length < 20) return;
-        setLoad(true);
         let pagination = Math.floor(characters.length / 20) + 1;
+        if (pagination > limit) return;
+        setLoad(true);
         _getCharacteres(pagination);
     }
 

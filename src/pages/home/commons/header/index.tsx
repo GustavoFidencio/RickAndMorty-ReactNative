@@ -1,4 +1,4 @@
-import React, { memo, useRef, useState, useEffect } from "react"
+import React, { memo, useRef, useEffect } from "react"
 
 import {
     Title,
@@ -25,12 +25,11 @@ interface Props {
 export const Header = memo(({ setFav, fav, setCharac, setErr }: Props) => {
 
     const inputRef = useRef(null);
-    const [favorite, setFavorite] = useState(false);
     const opacity = useRef(new Animated.Value(0)).current;
 
     useEffect(() => {
-        Animate.smooth(Number(favorite), opacity, 600)
-    }, [favorite]);
+        Animate.smooth(Number(fav), opacity, 600)
+    }, [fav]);
 
     useEffect(() => {
         if (fav) inputRef.current.clear()
@@ -38,18 +37,14 @@ export const Header = memo(({ setFav, fav, setCharac, setErr }: Props) => {
 
     const _onPress = () => {
         setFav();
-        setFavorite(!favorite);
     }
 
     const _getCharacterByName = (name: string) => {
         if (name == '') setErr('');
-        if (fav) {
-            setFavorite(false)
-            setFav()
-        }
+        if (fav) setFav();
         StorageHome.getByName(name)
             .then(res => setCharac(res))
-            .catch(err => {
+            .catch(() => {
                 setCharac([])
                 setErr('Personagem não encontrado')
             })
